@@ -42,9 +42,9 @@ renderer.render(scene, camera);
 // Update the controls:
 controls.update();
 
-export default function animateCreatingScene() {
+export default function animate() {
   // Request animation frame:  
-  window.requestAnimationFrame(animateCreatingScene);
+  window.requestAnimationFrame(animate);
 
   // // Rotate the mesh:
   // mesh.rotation.x += 0.01;
@@ -56,4 +56,4 @@ export default function animateCreatingScene() {
   renderer.render(scene, camera);
 }
 
-animateCreatingScene();
+animate();

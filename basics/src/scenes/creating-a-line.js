@@ -48,11 +48,11 @@ renderer.render(scene, camera);
 // Update the controls:
 controls.update();
 
-export default function animateCreatingLine() {
+export default function animate() {
   const time = Date.now() * 0.001; 
   
   // Request animation frame:  
-  window.requestAnimationFrame(animateCreatingLine);
+  window.requestAnimationFrame(animate);
 
   // Rotate the mesh (not geometry):
   mesh.rotation.z = time;
@@ -64,5 +64,5 @@ export default function animateCreatingLine() {
   renderer.render(scene, camera);
 }
 
-animateCreatingLine();
+animate();
 
