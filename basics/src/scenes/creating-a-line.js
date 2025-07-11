@@ -63,3 +63,6 @@ export default function animateCreatingLine() {
   // Render the scene:
   renderer.render(scene, camera);
 }
+
+animateCreatingLine();
+

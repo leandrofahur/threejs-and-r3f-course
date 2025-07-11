@@ -55,3 +55,5 @@ export default function animateCreatingScene() {
   // Render the scene:
   renderer.render(scene, camera);
 }
+
+animateCreatingScene();
