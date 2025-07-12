@@ -20,14 +20,30 @@ document.body.appendChild( renderer.domElement );
 // 2. Material (MeshBasicMaterial function)
 // 3. Mesh (Geometry and Material)
 // 4. Axis (optional)
+// 5. Group
 
 const geometry = new THREE.SphereGeometry(1, 10, 10);
 const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
-const mesh = new THREE.Mesh(geometry, material);
 const axesHelper = new THREE.AxesHelper(3);
 
+const mesh1 = new THREE.Mesh(geometry, material);
+const mesh2 = new THREE.Mesh(geometry, material);
+const mesh3 = new THREE.Mesh(geometry, material);
+const mesh4 = new THREE.Mesh(geometry, material);
+
+mesh1.position.set(3, 0, 0);
+mesh2.position.set(-3, 0, 0);
+mesh3.position.set(0, 3, 0);
+mesh4.position.set(0, -3, 0);
+
+const group = new THREE.Group();
+group.add(mesh1);
+group.add(mesh2);
+group.add(mesh3);
+group.add(mesh4);
+
 // Add the mesh to the scene:
-scene.add(mesh);
+scene.add(group);
 scene.add(axesHelper);
 
 // Add OrbitControls:
@@ -45,8 +61,12 @@ renderer.render(scene, camera);
 // Update the controls:
 controls.update();
 
-
-console.log("Distance between mesh and camera: ", mesh.position.distanceTo(camera.position));
+console.log({
+	"Distance between mesh1 and camera: ": mesh1.position.distanceTo(camera.position),
+	"Distance between mesh2 and camera: ": mesh2.position.distanceTo(camera.position),
+	"Distance between mesh3 and camera: ": mesh3.position.distanceTo(camera.position),
+	"Distance between mesh4 and camera: ": mesh4.position.distanceTo(camera.position)
+});
 
 export default function animate() {
   // Request animation frame:  
@@ -58,11 +78,22 @@ export default function animate() {
 	// mesh.scale.z += 0.01;
 
   // Rotate the mesh:
-  mesh.rotation.x += 0.01;
+  // mesh.rotation.x += 0.01;
   // mesh.rotation.y += 0.01;
   // mesh.rotation.z += 0.01;
-  
 
+	// Rotate the mesh:
+	mesh1.rotation.x += 0.01;
+	mesh2.rotation.y += 0.01;
+	mesh3.rotation.z += 0.02;
+	mesh4.rotation.x += 0.01;
+	mesh4.rotation.y += 0.01;
+
+	// Rotate the group:
+	// group.rotation.x += 0.01;
+	group.rotation.y += 0.01;
+	group.rotation.z += 0.01;
+  
   controls.update();
 
   // Render the scene:
