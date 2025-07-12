@@ -25,6 +25,7 @@ help:
 	@echo "Examples:"
 	@echo "  make run-scene SCENE=creating-a-scene"
 	@echo "  make run-scene SCENE=creating-a-line"
+	@echo "  make run-scene SCENE=manipulating-meshes"
 
 # Install dependencies
 install:
